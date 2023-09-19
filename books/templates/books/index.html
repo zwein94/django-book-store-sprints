@@ -1,0 +1,28 @@
+{% extends "books/base.html" %} {% load static %}{% block title %} Books
+{% endblock%} {% block content%}
+<div class="container">
+  <h1>Books</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for book in books %}
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ book.title }}</h5>
+            <p class="card-text">Average Rating: {{ book.average_rating}}</p>
+            <p class="card-text">Language Code: {{ book.language_code}}</p>
+            <p class="card-text">Number of Pages: {{ book.num_pages}}</p>
+            <p class="card-text">Ratings Count: {{ book.ratings_count}}</p>
+            <p class="card-text">Text_Reviews Count: {{ book.text_reviews_count}}</p>
+            <p class="card-text">Publication Date: {{ book.publication_date}}</p>
+            <p class="card-text">Publisher: {{ book.publisher}}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Author: {{ book.authors }}</small>
+          </div>
+        </div>
+      </div>
+
+    {% endfor %}
+  </div>
+</div>
+{% endblock %} {% block jsfiles %} {% endblock jsfiles %}
